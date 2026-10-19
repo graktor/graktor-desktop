@@ -1,13 +1,16 @@
 // Graktor desktop — a thin native window around the live app. No bundled frontend, no local
-// server: every install loads https://app.zendoriaventures.com directly and talks straight to
-// the real API, exactly like a browser tab, just packaged as a real Windows app with its own
+// server: every install loads https://app.graktor.com directly and talks straight to the real
+// API, exactly like a browser tab, just packaged as a real Windows app with its own
 // icon/shortcut. The existing offline-POS support (IndexedDB queue, built into the web app
 // itself) carries over here for free, since this is still just Chromium under the hood.
+// app.graktor.com and app.zendoriaventures.com serve the exact same backend -- this just
+// points the platform's own generic desktop app at the platform's own generic domain instead
+// of one specific tenant's branded one.
 const { app, BrowserWindow, Menu, shell, session } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs");
 
-const APP_URL = "https://app.zendoriaventures.com";
+const APP_URL = "https://app.graktor.com";
 const STATE_FILE = path.join(app.getPath("userData"), "window-state.json");
 
 function loadWindowState() {
