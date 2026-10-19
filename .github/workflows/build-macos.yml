@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
 
       - name: Build unsigned .dmg
-        run: npx electron-builder --mac
+        run: npx electron-builder --mac --publish never
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
 
